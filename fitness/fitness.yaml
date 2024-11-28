@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fitness-advice-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fitness-advice-service
+  template:
+    metadata:
+      labels:
+        app: fitness-advice-service
+    spec:
+      containers:
+      - name: fitness-advice-service
+        image: jonahirande/fitness-advice-service:1.0
+        ports:
+        - containerPort: 5003
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fitness-advice-service
+spec:
+  selector:
+    app: fitness-advice-service
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5003
+  type: NodePort

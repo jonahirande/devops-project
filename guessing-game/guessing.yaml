@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guessing-game-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: guessing-game-service
+  template:
+    metadata:
+      labels:
+        app: guessing-game-service
+    spec:
+      containers:
+      - name: guessing-game-service
+        image: jonahirande/guessing-game-service:1.0
+        ports:
+        - containerPort: 5004  # Port updated to 5004
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: guessing-game-service
+spec:
+  selector:
+    app: guessing-game-service
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5004  # Port updated to 5004
+  type: NodePort
