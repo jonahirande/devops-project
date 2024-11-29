@@ -8,22 +8,22 @@ pipeline {
         stage ('Deploying '){
             steps {
                 sh '''
-                kubectl apply -f weather-app/k8s-manifest.yaml
+                kubectl apply -f ./weather-app/k8s-manifest.yaml
                 '''
 
                 // Deploy Dad Jokes App
                 sh '''
-                kubectl apply -f dad-jokes/k8s-manifest.yaml
+                kubectl apply -f ./dad-jokes/k8s-manifest.yaml
                 '''
 
                 // Deploy Fitness Advice App
                 sh '''
-                kubectl apply -f fitness-advice/k8s-manifest.yaml
+                kubectl apply -f ./fitness-advice/k8s-manifest.yaml
                 '''
 
                 // Deploy Guessing Game App
                 sh '''
-                kubectl apply -f guessing-game/k8s-manifest.yaml
+                kubectl apply -f ./guessing-game/k8s-manifest.yaml
                 '''
             }
         }
