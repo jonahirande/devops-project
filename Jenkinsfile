@@ -18,7 +18,7 @@ pipeline {
 
                 // Deploy Fitness Advice App
                 sh '''
-                kubectl apply -f ./fitness-advice/k8s-manifest.yaml
+                kubectl apply -f ./fitness/k8s-manifest.yaml
                 '''
 
                 // Deploy Guessing Game App
