@@ -35,7 +35,7 @@ pipeline {
                 sh '''
                 kubectl apply -f ./example-voting-app/k8s-specification/*
                 '''
-
+                 // .
             }
         }
     }
