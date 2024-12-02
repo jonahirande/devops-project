@@ -35,6 +35,18 @@ pipeline {
                 sh '''
                 kubectl apply -f ./k8s-specifications/
                 '''
+
+                // Set up helm repo for Grafana
+                sh '''
+                helm repo add grafana https://grafana.github.io/helm-charts
+                helm repo update
+                '''
+
+                // Deploy Grafana via helm
+                sh '''
+                helm upgrade --install grafana grafana/grafana --namespace monitoring --create-namespace \
+                --set service.type=NodePort --set adminPassword=irande --set service.port=32005
+                '''
             }
         }
     }
