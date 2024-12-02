@@ -25,6 +25,12 @@ pipeline {
                 sh '''
                 kubectl apply -f ./guessing-game/k8s-manifest.yaml
                 '''
+
+                // Deploy Nginx
+                sh '''
+                kubectl apply -f ./other-microservices/nginx.yaml
+                '''
+                
             }
         }
     }
