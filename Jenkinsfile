@@ -33,7 +33,7 @@ pipeline {
 
                 // Deploy the Sample Voting App from Docker hub
                 sh '''
-                kubectl apply -f ./example-voting-app/k8s-specification/*
+                kubectl apply -f ./example-voting-app/k8s-specifications/*
                 '''
             }
         }
