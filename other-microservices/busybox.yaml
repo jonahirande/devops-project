@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: busybox
-        image: busybox:latest
+        image: library/busybox:latest
         ports:
         - containerPort: 80
 
@@ -30,4 +30,4 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-      nodePort: 31008
+      nodePort: 31010
