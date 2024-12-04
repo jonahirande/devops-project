@@ -33,7 +33,7 @@ pipeline {
 
                 // Deploy Busybox
                 sh '''
-                kubectl apply ./other-microservices/busybox.yaml
+                kubectl apply -f ./other-microservices/busybox.yaml
                 '''
 
                 // Deploy the Sample Voting App from Docker hub
