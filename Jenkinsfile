@@ -87,6 +87,7 @@ pipeline {
     post {
         success {
             echo 'Deployment completed successfully!'
+            sh 'kubectl get all --all-namespaces'
         }
         failure {
             echo 'Deployment failed. Check the logs for errors.'
