@@ -5,7 +5,17 @@ pipeline {
     }
 
     stages {
-        stage ('Deploying '){
+        stage('Build') {
+            steps {
+                // Example build commands
+                sh '''
+                echo "Building the application..."
+                docker build ./dad-jokes/Dockerfile -t dad-jokes
+                '''
+            }
+        }
+        
+        stage('Deploying') {
             steps {
                 sh '''
                 kubectl apply -f ./weather-app/k8s-manifest.yaml
