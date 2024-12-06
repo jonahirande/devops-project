@@ -80,6 +80,7 @@ pipeline {
                 sh '''
                 helm upgrade --install grafana grafana/grafana --namespace monitoring --create-namespace \
                 --set service.type=NodePort --set adminPassword=irande --set service.port=32005
+                
                 '''
             }
         }
