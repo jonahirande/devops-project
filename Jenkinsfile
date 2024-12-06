@@ -10,7 +10,7 @@ pipeline {
                 // Example build commands
                 sh '''
                 echo "Building the application..."
-                sudo docker build ./dad-jokes/Dockerfile -t dad-jokes
+                sudo docker build ./dad-jokes/. -t dad-jokes
                 '''
             }
         }
