@@ -10,11 +10,30 @@ pipeline {
                 // Example build commands
                 sh '''
                 echo "Building the application..."
-                sudo docker build ./dad-jokes/. -t dad-jokes
+                sudo docker build ./dad-jokes/. -t jonahirande/dad-jokes
+                sudo docker build ./fitness/. -t jonahirande/fitness
+                sudo docker build ./guessing-game/. -t jonahirande/guessing-game
+                sudo docker build ./weather-app/. -t jonahirande/weather-app
                 '''
             }
         }
-        
+        stage('Confirm Images exist') {
+            steps {
+                sh '''
+                sudo docker images
+                '''
+            }
+        }
+        stage( 'Push to my repository') {
+            steps {
+                sh '''
+                sudo docker push jonahirande/dad-jokes
+                sudo docker push jonahirande/fitness
+                sudo docker push jonahirande/guessing-game
+                sudo docker push jonahirande/weather-app
+                '''
+            }
+        }
         stage('Deploying') {
             steps {
                 sh '''
