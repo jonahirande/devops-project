@@ -18,7 +18,7 @@ spec:
       - name: weather-service
         image: jonahirande/weather-service:1.0
         ports:
-        - containerPort: 5000
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -30,7 +30,7 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 5000
+      targetPort: 8080
       nodePort: 30081
   type: NodePort
 
