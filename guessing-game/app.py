@@ -39,5 +39,5 @@ def guess_number():
         return jsonify({"message": f"Correct! The secret number was {secret_number}. It took you {guess_count} attempts.", "attempts": guess_count}), 200
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5004)  # Port changed to 5004
+    app.run(host="0.0.0.0", port=8080)  # Port changed to 5004
 
