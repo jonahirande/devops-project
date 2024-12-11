@@ -70,6 +70,11 @@ pipeline {
                 kubectl apply -f ./k8s-specifications/
                 '''
 
+                // Deploy other micro-services
+                sh '''
+                kubectl apply -f ./other-microservices/
+                '''
+                
                 // Set up helm repo for Grafana
                 sh '''
                 helm repo add grafana https://grafana.github.io/helm-charts
