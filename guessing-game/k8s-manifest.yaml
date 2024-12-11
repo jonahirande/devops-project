@@ -16,7 +16,7 @@ spec:
       - name: guessing-game-service
         image: jonahirande/guessing-game-service:1.0
         ports:
-        - containerPort: 5004  # Port updated to 5004
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -28,5 +28,5 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 5004  # Port updated to 5004
+      targetPort: 8080
   type: NodePort
